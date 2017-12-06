@@ -1,50 +1,44 @@
 # Inventory Manager
 
-Manages a typical inventory for a store front. It's CLI-based toy app to solve the interview problem, not based
+Manages a typical inventory using a ledger. It's CLI-based toy app to solve the interview problem, not based
 on real-world models/use-cases.
 
 ## Models
-```
-User -> Customer
-     -> Employee
+High level view of the models used:
 
-Item -> SKU -> ProductGroup
+```uml
+User <- Customer
+     <- Employee
 
-Order : Item, User, Discount, Tax, Gross, Net
+Item <- SKU <- ProductGroup
 
-Inventory: Item, Order
+Order -<> Items, User, Net, Gross 
+
+Ledger -<> Order, Item, Credit, Debit, Balance
 
 ```
 
 ## Usecases
 
-* Replenish Inventory(Item)
-* Place an order(User, Item)
-* Summary of sales
+* Replenish an item in Inventory
+* Place an order by an User for a list of Items
+* Summary of sales so far today
 * Summary of inventory
-* Apply discount(Item/User)
+* Discounts are at both user level(mock users created with different types of discount) and at item/SKU/Product Group levels
 
 ## What can be better?
 
-* Handling concurrency better: how do you handle multiple checkouts happening at different registers?
-* More realistic models and usecases. Eg. "Silly things" like taxes are not calculated properly.
-* Better error handling
-* Caching/faster retrieval for sales and inventory summary
 * More tests
+* Handling concurrency better: how do you handle multiple checkouts happening at different registers?
+* More realistic models and usecases. Eg. "Silly things" like taxes are not considered in this toy model
+* Caching/faster retrieval for sales and inventory summary
+* Better error handling
 
 ## Installation
 
-0. Install golang and set GOPATH.
-1. Clone this repo into `src` folder of your `GOPATH`
-2. Install glide for your OS: `curl https://glide.sh/get | sh` or `brew install glide`
-3. Run `glide install` in your repo folder
-4. Run `go run main.go`.
-
-## Checks
-
-1. Install gometalinter. `go get -u github.com/alecthomas/gometalinter`
-2. Install linters: `gometalinter --install`
-3. Run lints: `gometalinter ./...`
+0. Install golang(version > 1.8.1) and set GOPATH. For eg. `$HOME/gopath`.
+1. Clone this repo into a folder and add that folder to your `GOPATH`. Eg. `export GOPATH=$HOME/gopath:$HOME/src/toy-store`
+2. `cd toy-store/src` and run `go run main.go`.
 
 ## Tests
 
