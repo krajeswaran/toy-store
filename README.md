@@ -42,4 +42,4 @@ Ledger -<> Order, Item, Credit, Debit, Balance
 
 ## Tests
 
-1. Run `go test -cover $(glide nv)`
+1. Run `go test -cover ./...`
