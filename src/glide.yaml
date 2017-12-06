@@ -1,0 +1,5 @@
+package: .
+import:
+- package: github.com/shopspring/decimal
+- package: github.com/satori/go.uuid
+- package: gopkg.in/dixonwille/wmenu.v4

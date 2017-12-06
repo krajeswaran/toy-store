@@ -1,0 +1,14 @@
+hash: 0f547ae3f27db400b3ffa5fb25e6ab147530e45a4f78f82c389826478f0701f9
+updated: 2017-12-07T03:59:42.857958183+05:30
+imports:
+- name: github.com/daviddengcn/go-colortext
+  version: 17e75f6184bc9e727756cd0d82e0af58b1fc7191
+- name: github.com/satori/go.uuid
+  version: 5bf94b69c6b68ee1b541973bb8e1144db23a194b
+- name: github.com/shopspring/decimal
+  version: 9ca7f51822d222ae4e246f070f9aad863599bd1a
+- name: gopkg.in/dixonwille/wlog.v2
+  version: 76a8811f69dff5d130c6b5f0342451b0beb52f37
+- name: gopkg.in/dixonwille/wmenu.v4
+  version: e484b13b6dd57452205f702cec2af9262c78f37f
+testImports: []
